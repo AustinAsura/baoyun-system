@@ -1,0 +1,96 @@
+/* 全局重置 */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Microsoft YaHei', sans-serif; }
+body { background-color: #f4f6f9; color: #333; }
+
+/* 顶部导航栏 */
+.header {
+    background: #fff; height: 70px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;
+}
+.header .logo-area { display: flex; align-items: center; gap: 15px; }
+.header img { height: 45px; } /* Logo尺寸 */
+.header h1 { font-size: 22px; color: #1a4f8b; letter-spacing: 2px; }
+.header .nav-links a { text-decoration: none; color: #666; margin-left: 20px; font-size: 14px; }
+.header .nav-links a:hover { color: #1a4f8b; }
+
+/* 主内容区容器 */
+.container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+/* 红色标语横幅 */
+.banner {
+    background: #fff; text-align: center; padding: 40px 0; border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); margin-bottom: 30px;
+}
+.banner h2 { color: #d32f2f; font-size: 32px; font-weight: bold; letter-spacing: 4px; }
+
+/* 卡片面板 */
+.panel {
+    background: #fff; border-radius: 8px; padding: 20px 25px; margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;
+}
+.panel-title { font-size: 18px; font-weight: bold; color: #1a4f8b; display: flex; align-items: center; gap: 8px; }
+.panel-title.purple { color: #673ab7; }
+.panel-title.blue { color: #1976d2; }
+.more-link { color: #999; text-decoration: none; font-size: 14px; }
+
+/* 两列布局 */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+/* 列表样式 */
+.file-list { list-style: none; }
+.file-list li { padding: 12px 0; border-bottom: 1px dashed #eee; display: flex; justify-content: space-between; align-items: center; }
+.file-list li:last-child { border-bottom: none; }
+.file-list a { text-decoration: none; color: #333; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.file-list a:hover { color: #1a4f8b; }
+.file-list .date { color: #999; font-size: 13px; }
+.icon-pdf { color: #f44336; font-size: 16px; }
+
+/* 半月刊特制样式 */
+.halfmonthly-tab { display: inline-block; background: #e3f2fd; color: #1976d2; padding: 5px 15px; border-radius: 4px; font-size: 13px; margin-bottom: 15px; font-weight: bold; }
+.pdf-viewer { width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 4px; }
+
+/* 后台表单样式 */
+.admin-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; }
+.admin-form input, .admin-form select { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+.admin-form button { padding: 12px; background: #1a4f8b; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+.admin-form button:hover { background: #123b6b; }
+
+/* 表格样式 */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+th { background: #f8f9fa; font-weight: bold; }
+.btn-del { background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+
+/* 模态框样式 */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+}
+.modal-card {
+    background: #fff; width: 600px; max-width: 90%; border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); display: flex; flex-direction: column;
+}
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; border-bottom: 1px solid #eee;
+}
+.modal-header h3 { margin: 0; color: #1a4f8b; font-size: 18px; }
+.close-btn { font-size: 24px; color: #999; cursor: pointer; line-height: 1; }
+.close-btn:hover { color: #f44336; }
+.modal-body {
+    padding: 20px; font-size: 15px; color: #333; line-height: 1.6;
+    max-height: 60vh; overflow-y: auto;
+}
+.modal-footer {
+    padding: 15px 20px; border-top: 1px solid #eee; text-align: right;
+}
+.modal-btn {
+    background: #1a4f8b; color: #fff; border: none; padding: 8px 20px;
+    border-radius: 4px; cursor: pointer; font-size: 14px;
+}
+.modal-btn:hover { background: #123b6b; }

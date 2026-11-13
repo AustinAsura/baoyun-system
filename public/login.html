@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录 - 装置保运部</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            width: 400px;
+            margin: 150px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .login-container h2 { text-align: center; color: #1a4f8b; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #666; font-size: 14px;}
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+        .form-group input:focus { border-color: #1a4f8b; }
+        .login-btn { width: 100%; padding: 14px; background: #1a4f8b; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: 0.3s;}
+        .login-btn:hover { background: #123b6b; }
+        .error-msg { color: #f44336; font-size: 14px; text-align: center; margin-bottom: 15px; display: none; }
+    </style>
+</head>
+<body style="background-color: #f4f6f9;">
+    <div class="login-container">
+        <h2>系统后台登录</h2>
+        <div class="error-msg" id="errorMsg">账号或密码错误</div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>账号</label>
+                <input type="text" id="username" required placeholder="请输入账号 (admin)">
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" id="password" required placeholder="请输入密码 (123456)">
+            </div>
+            <button type="submit" class="login-btn">登 录</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const result = await res.json();
+                
+                if (result.success) {
+                    window.location.href = '/admin.html'; // 登录成功跳转后台
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            } catch (error) {
+                alert('网络请求失败');
+            }
+        });
+    </script>
+</body>
+</html>
