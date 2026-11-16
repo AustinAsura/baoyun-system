@@ -1,0 +1,10 @@
+# 依赖包
+node_modules/
+
+# 环境变量（含密码，绝对不能传）
+.env
+
+# 本地旧数据和上传文件夹（已废弃）
+data.json
+uploads/
+.DS_Store
