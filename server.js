@@ -85,7 +85,7 @@ async function uploadToSupabase(file) {
 
 // --- 登录/登出 ---
 app.post('/api/login', (req, res) => {
-    if (req.body.username === 'admin' && req.body.password === '123456') {
+    if (req.body.username === 'administrator' && req.body.password === 'admin@123!') {
         req.session.isAdmin = true;
         res.json({ success: true });
     } else res.status(401).json({ success: false, message: '账号或密码错误' });
